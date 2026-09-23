@@ -1,0 +1,27 @@
+{
+  "pr_number": 2,
+  "commit_sha": "high1",
+  "severity": "High",
+  "rule_severity": "High",
+  "severity_reasons": [
+    "Breaking API contract change",
+    "External consumer affected"
+  ],
+  "reasoning": "",
+  "additional_risks": [],
+  "gate_status": "not_required",
+  "notification_status": "sent",
+  "owning_contacts": [
+    "analytics-team",
+    "digital-team",
+    "platform-team",
+    "sdk-guild"
+  ],
+  "llm_status": {
+    "state": "disabled",
+    "reason": "LLM_ENABLED is false",
+    "model": "gemini-3.6-flash",
+    "escalated": false
+  },
+  "comment_markdown": "## AI Impact Analysis\n\n**Severity:** High\n\n**Why:**\n- Breaking API contract change\n- External consumer affected\n\n### Affected services\n- `order-analytics` \u2014 owner: analytics-team \u2014 criticality: standard \u2014 depth 3 \u2014 path: order-analytics -> order-notifications -> order-portal -> order-api\n- `order-notifications` \u2014 owner: platform-team \u2014 criticality: standard \u2014 depth 2 \u2014 path: order-notifications -> order-portal -> order-api\n- `order-portal` \u2014 owner: digital-team \u2014 criticality: standard \u2014 depth 1 \u2014 path: order-portal -> order-api\n\n### Owning teams\n- analytics-team\n- digital-team\n- platform-team\n- sdk-guild\n\n### API consumers\n- `partner-order-sdk` (external) \u2014 unspecified \u2014 **BREAKING**\n- `mobile-checkout` (internal) \u2014 GET /api/orders \u2014 **BREAKING**\n- `order-portal` (internal) \u2014 GET /api/orders \u2014 **BREAKING**\n- `order-sdk-dotnet` (sdk) \u2014 GET /api/orders v2.3.0 \u2014 **BREAKING**\n\n### Schema impacts\n- None\n\n### Affected tests\n- contract: `order_contract`\n- e2e: `order_e2e`\n\n### CI gate: not_required\n\n**Cross-team coordination required \u2014 tagging:** @analytics-team, @digital-team, @platform-team, @sdk-guild\n\n### Analysis warnings\n- `malformed_edge` (team3): 2 malformed edge(s) dropped\n- `unknown_node` (team3): 'shadow-service' is in the dependency graph but not in the service catalog\n- `coverage_gap` (team3): 1 catalog service(s) have no dependency-graph node\n- `unknown_consumer_type` (team3): consumer 'mobile-checkout' has type 'mobile'; treated as internal\n- `unresolved_owner` (team3): 2 impacted entit(ies) have no owner in the service catalog\n\n_Dependency graph `poc-v1` \u2014 coverage 90.91% (10/11 catalog services)._"
+}

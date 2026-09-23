@@ -1,0 +1,22 @@
+{
+  "pr_number": 1,
+  "commit_sha": "15d1e3f4d65d864fd0773fe9137b0e4e5f2d68a3",
+  "severity": "Low",
+  "rule_severity": "Low",
+  "severity_reasons": [
+    "No registered downstream dependency found",
+    "Changes are limited to code comments and minor CSS adjustments"
+  ],
+  "reasoning": "The pull request only contains non-breaking code additions including comments and a CSS rule update across frontend files. No services, API endpoints, schemas, or tests are affected by these changes.",
+  "additional_risks": [],
+  "gate_status": "not_required",
+  "notification_status": "not_required",
+  "owning_contacts": [],
+  "llm_status": {
+    "state": "ok",
+    "reason": "",
+    "model": "gemini-3.6-flash",
+    "escalated": false
+  },
+  "comment_markdown": "## AI Impact Analysis\n**Severity:** Low - Non-breaking frontend changes (code comments and CSS formatting) with no downstream impact.\n\n### Affected services\n- None\n\n### Owning teams\n- None\n\n### API consumers\n- None\n\n### Schema impacts\n- None\n\n### Affected tests\n- None\n\n### CI gate\nAllowed"
+}

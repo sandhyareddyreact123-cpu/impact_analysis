@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# impact_analysis
+=======
 # UC-05 Git-Integrated End-to-End POC
 
 This package contains:
@@ -6,7 +9,6 @@ This package contains:
 - a genuine local Git repository in `sample_repository`;
 - API endpoints that browse files, create branches, update files, commit changes, create a PR record from `git diff`, and analyze that PR;
 - a React dashboard that uses those Git endpoints.
-
 
 The integration aligns with the PRD/build design in which the Git provider supplies PR metadata and diff data while the agent posts comments and gate results through adapter contracts.
 
@@ -65,3 +67,4 @@ AZURE_DEVOPS_PROJECT=
 ```
 
 Use `github` or `azure_devops` as the provider path. GitHub requires the `X-Hub-Signature-256` and `X-GitHub-Event` headers. Azure DevOps requires the configured authorization token and event type header. The existing local Git endpoints remain available for the POC dashboard; hosted webhook processing is a separate path.
+>>>>>>> 2741f09 (Added test file)

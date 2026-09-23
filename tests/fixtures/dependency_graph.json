@@ -1,0 +1,117 @@
+{
+    "version": "poc-v1",
+    "edges": [
+        {
+            "from": "customer-portal",
+            "to": "customer-api"
+        },
+        {
+            "from": "reporting-service",
+            "to": "customer-api"
+        },
+        {
+            "from": "finance-ledger",
+            "to": "customer-api"
+        },
+        {
+            "from": "order-portal",
+            "to": "order-api"
+        },
+        {
+            "from": "order-notifications",
+            "to": "order-portal"
+        },
+        {
+            "from": "order-analytics",
+            "to": "order-notifications"
+        },
+        {
+            "from": "customer-archive",
+            "to": "customer-api"
+        },
+        {
+            "from": "shadow-service",
+            "to": "customer-api"
+        },
+        {
+            "from": "fraud-engine",
+            "to": "finance-ledger"
+        },
+        {
+            "from": "finance-ledger",
+            "to": "fraud-engine"
+        },
+        {
+            "from": "",
+            "to": "customer-api"
+        },
+        {
+            "from": "broken-edge-no-to"
+        }
+    ],
+    "api_consumers": [
+        {
+            "provider": "customer-api",
+            "consumer": "partner-sdk",
+            "type": "external"
+        },
+        {
+            "provider": "order-api",
+            "consumer": "partner-order-sdk",
+            "type": "external"
+        },
+        {
+            "provider": "customer-api",
+            "consumer": "customer-portal",
+            "type": "internal",
+            "api": "GET /api/customers"
+        },
+        {
+            "provider": "customer-api",
+            "consumer": "customer-sdk-python",
+            "type": "sdk",
+            "api": "GET /api/customers",
+            "version": "1.4.0"
+        },
+        {
+            "provider": "order-api",
+            "consumer": "order-portal",
+            "type": "internal",
+            "api": "GET /api/orders"
+        },
+        {
+            "provider": "order-api",
+            "consumer": "order-sdk-dotnet",
+            "type": "sdk",
+            "api": "GET /api/orders",
+            "version": "2.3.0",
+            "contact": "sdk-guild"
+        },
+        {
+            "provider": "order-api",
+            "consumer": "mobile-checkout",
+            "type": "mobile",
+            "api": "GET /api/orders"
+        }
+    ],
+    "schema_lineage": [
+        {
+            "schema": "customer_contract",
+            "service": "customer-api",
+            "mode": "write",
+            "type": "service"
+        },
+        {
+            "schema": "customer_contract",
+            "service": "finance-ledger",
+            "mode": "read",
+            "type": "service"
+        },
+        {
+            "schema": "customer_contract",
+            "service": "daily-etl",
+            "mode": "read",
+            "type": "pipeline"
+        }
+    ]
+}

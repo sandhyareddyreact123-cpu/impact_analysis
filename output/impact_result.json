@@ -1,0 +1,110 @@
+{
+  "event_id": "critical",
+  "event_type": "pull_request",
+  "repository": "demo",
+  "pr_number": 3,
+  "commit_sha": "critical1",
+  "changed_files": [
+    {
+      "path": "customer-api/migrations/customer_contract.sql",
+      "service": "customer-api",
+      "schema": "customer_contract",
+      "symbol": "customer_contract",
+      "patch": "schema column removed",
+      "breaking": true
+    }
+  ],
+  "changed_components": [
+    {
+      "path": "customer-api/migrations/customer_contract.sql",
+      "kind": "schema",
+      "symbol": "customer_contract",
+      "evidence": "customer-api/migrations/customer_contract.sql"
+    }
+  ],
+  "affected_services": [
+    {
+      "name": "customer-portal",
+      "owner": "digital-team",
+      "criticality": "standard",
+      "evidence": [
+        "customer-portal -> customer-api"
+      ]
+    },
+    {
+      "name": "finance-ledger",
+      "owner": "finance-team",
+      "criticality": "core_financial",
+      "evidence": [
+        "finance-ledger -> customer-api"
+      ]
+    },
+    {
+      "name": "reporting-service",
+      "owner": "analytics-team",
+      "criticality": "standard",
+      "evidence": [
+        "reporting-service -> customer-api"
+      ]
+    }
+  ],
+  "api_consumers": [
+    {
+      "provider": "customer-api",
+      "consumer": "partner-sdk",
+      "type": "external",
+      "breaking": true,
+      "evidence": "partner-sdk consumes customer-api"
+    }
+  ],
+  "schema_impacts": [
+    {
+      "schema": "customer_contract",
+      "breaking": true,
+      "readers": [
+        "finance-ledger",
+        "daily-etl"
+      ],
+      "writers": [
+        "customer-api"
+      ],
+      "pipelines": [
+        "daily-etl"
+      ],
+      "evidence": "lineage:customer_contract"
+    }
+  ],
+  "affected_tests": [
+    {
+      "name": "customer_unit",
+      "type": "unit"
+    },
+    {
+      "name": "customer_integration",
+      "type": "integration"
+    },
+    {
+      "name": "customer_contract",
+      "type": "contract"
+    },
+    {
+      "name": "customer_e2e",
+      "type": "e2e"
+    }
+  ],
+  "owning_contacts": [
+    "analytics-team",
+    "digital-team",
+    "finance-team"
+  ],
+  "severity": "Critical",
+  "severity_reasons": [
+    "Breaking impact reaches a core financial service"
+  ],
+  "comment_markdown": "## AI Impact Analysis\n**Severity:** Critical\n**Commit:** critical1\n\n### Affected services\n- customer-portal (digital-team)\n- finance-ledger (finance-team)\n- reporting-service (analytics-team)\n\n### API consumers\n- partner-sdk (external)\n\n### Schema impacts\n- customer_contract: readers=finance-ledger, daily-etl; writers=customer-api\n\n### Affected tests\n- unit: customer_unit\n- integration: customer_integration\n- contract: customer_contract\n- e2e: customer_e2e\n\n### Severity reasons\n- Breaking impact reaches a core financial service\n\n### Owners\n- @analytics-team, @digital-team, @finance-team\n\n### CI gate: pending_approval",
+  "notification_status": "sent",
+  "gate_status": "pending_approval",
+  "graph_version": "poc-v1",
+  "started_at": 240001.1145044,
+  "elapsed_seconds": 0.005947
+}

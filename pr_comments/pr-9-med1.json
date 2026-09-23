@@ -1,0 +1,25 @@
+{
+  "pr_number": 9,
+  "commit_sha": "med1",
+  "severity": "Critical",
+  "rule_severity": "Medium",
+  "severity_reasons": [
+    "Contained registered downstream impact",
+    "Removed field used by finance-ledger"
+  ],
+  "reasoning": "Hidden breaking change.",
+  "additional_risks": [],
+  "gate_status": "pending_approval",
+  "notification_status": "sent",
+  "owning_contacts": [
+    "analytics-team",
+    "platform-team"
+  ],
+  "llm_status": {
+    "state": "ok",
+    "reason": "",
+    "model": "gemini-3.6-flash",
+    "escalated": true
+  },
+  "comment_markdown": "## AI Impact Analysis\n**Severity:** High\n### Affected services\n- x\n### Owning teams\n- y\n### API consumers\n- z\n### Schema impacts\n- s\n### Affected tests\n- t\n### CI gate: not_required"
+}

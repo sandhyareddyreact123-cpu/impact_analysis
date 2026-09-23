@@ -1,0 +1,1 @@
+{"mappings":[{"component":"customer-api","tests":[{"name":"customer_unit","type":"unit"},{"name":"customer_integration","type":"integration"},{"name":"customer_contract","type":"contract"},{"name":"customer_e2e","type":"e2e"}]},{"component":"order-api","tests":[{"name":"order_contract","type":"contract"},{"name":"order_e2e","type":"e2e"}]}]}

@@ -1,0 +1,14 @@
+{
+    "event_id": "low",
+    "event_type": "pull_request",
+    "repository": "demo",
+    "pr_number": 1,
+    "commit_sha": "low1",
+    "changed_files": [
+        {
+            "path": "README.md",
+            "patch": "documentation only",
+            "breaking": false
+        }
+    ]
+}

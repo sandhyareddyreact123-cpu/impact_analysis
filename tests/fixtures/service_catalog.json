@@ -1,0 +1,59 @@
+{
+    "services": [
+        {
+            "name": "customer-portal",
+            "owner": "digital-team",
+            "criticality": "standard"
+        },
+        {
+            "name": "reporting-service",
+            "owner": "analytics-team",
+            "criticality": "standard"
+        },
+        {
+            "name": "finance-ledger",
+            "owner": "finance-team",
+            "criticality": "core_financial"
+        },
+        {
+            "name": "order-portal",
+            "owner": "digital-team",
+            "criticality": "standard"
+        },
+        {
+            "name": "customer-api",
+            "owner": "digital-team",
+            "criticality": "standard"
+        },
+        {
+            "name": "order-api",
+            "owner": "digital-team",
+            "criticality": "standard"
+        },
+        {
+            "name": "fraud-engine",
+            "owner": "finance-team",
+            "criticality": "core_financial"
+        },
+        {
+            "name": "order-notifications",
+            "owner": "platform-team",
+            "criticality": "standard"
+        },
+        {
+            "name": "order-analytics",
+            "owner": "analytics-team",
+            "criticality": "standard"
+        },
+        {
+            "name": "customer-archive",
+            "owner": null,
+            "criticality": "standard"
+        },
+        {
+            "name": "legacy-batch",
+            "owner": "platform-team",
+            "criticality": "standard"
+        }
+    ]
+}

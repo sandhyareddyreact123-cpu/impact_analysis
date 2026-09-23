@@ -1,0 +1,25 @@
+{
+  "pr_number": 418,
+  "commit_sha": "demo-408610",
+  "severity": "Critical",
+  "rule_severity": "Critical",
+  "severity_reasons": [
+    "Breaking impact reaches a core financial service"
+  ],
+  "reasoning": "",
+  "additional_risks": [],
+  "gate_status": "pending_approval",
+  "notification_status": "sent",
+  "owning_contacts": [
+    "analytics-team",
+    "digital-team",
+    "finance-team"
+  ],
+  "llm_status": {
+    "state": "fallback",
+    "reason": "transport error: Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+    "model": "gemini-3.6-flash",
+    "escalated": false
+  },
+  "comment_markdown": "## AI Impact Analysis\n\n**Severity:** Critical\n\n**Why:**\n- Breaking impact reaches a core financial service\n\n### Affected services\n- `customer-archive` \u2014 owner: unknown \u2014 criticality: standard \u2014 depth 1 \u2014 path: customer-archive -> customer-api\n- `customer-portal` \u2014 owner: digital-team \u2014 criticality: standard \u2014 depth 1 \u2014 path: customer-portal -> customer-api\n- `finance-ledger` \u2014 owner: finance-team \u2014 criticality: core_financial \u2014 depth 1 \u2014 path: finance-ledger -> customer-api\n- `fraud-engine` \u2014 owner: finance-team \u2014 criticality: core_financial \u2014 depth 2 \u2014 path: fraud-engine -> finance-ledger -> customer-api\n- `reporting-service` \u2014 owner: analytics-team \u2014 criticality: standard \u2014 depth 1 \u2014 path: reporting-service -> customer-api\n- `shadow-service` \u2014 owner: unknown \u2014 criticality: standard \u2014 depth 1 \u2014 path: shadow-service -> customer-api\n\n### Owning teams\n- analytics-team\n- digital-team\n- finance-team\n\n### API consumers\n- `partner-sdk` (external) \u2014 unspecified \u2014 **BREAKING**\n- `customer-portal` (internal) \u2014 GET /api/customers \u2014 **BREAKING**\n- `customer-sdk-python` (sdk) \u2014 GET /api/customers v1.4.0 \u2014 **BREAKING**\n\n### Schema impacts\n- `customer_contract` \u2014 **BREAKING** \u2014 readers: finance-ledger, daily-etl \u2014 writers: customer-api \u2014 pipelines: daily-etl\n\n### Affected tests\n- unit: `customer_unit`\n- integration: `customer_integration`\n- contract: `customer_contract`\n- e2e: `customer_e2e`\n\n### CI gate: pending_approval\n\n**Cross-team coordination required \u2014 tagging:** @analytics-team, @digital-team, @finance-team\n\n### Analysis warnings\n- `malformed_edge` (team3): 2 malformed edge(s) dropped\n- `unknown_node` (team3): 'shadow-service' is in the dependency graph but not in the service catalog\n- `coverage_gap` (team3): 1 catalog service(s) have no dependency-graph node\n- `unresolved_owner` (team3): 2 impacted entit(ies) have no owner in the service catalog\n- `unresolved_owner` (team3): 4 impacted entit(ies) have no owner in the service catalog\n- `llm_call_failed` (llm): Gemini call failed: Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400\n\n_Dependency graph `poc-v1` \u2014 coverage 90.91% (10/11 catalog services)._"
+}

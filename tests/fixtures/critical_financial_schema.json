@@ -1,0 +1,1 @@
+{"event_id":"critical","event_type":"pull_request","repository":"demo","pr_number":3,"commit_sha":"critical1","changed_files":[{"path":"customer-api/migrations/customer_contract.sql","service":"customer-api","schema":"customer_contract","symbol":"customer_contract","patch":"schema column removed","breaking":true}]}

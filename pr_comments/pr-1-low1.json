@@ -1,0 +1,21 @@
+{
+  "pr_number": 1,
+  "commit_sha": "low1",
+  "severity": "Low",
+  "rule_severity": "Low",
+  "severity_reasons": [
+    "No registered downstream dependency found"
+  ],
+  "reasoning": "",
+  "additional_risks": [],
+  "gate_status": "not_required",
+  "notification_status": "not_required",
+  "owning_contacts": [],
+  "llm_status": {
+    "state": "disabled",
+    "reason": "LLM_ENABLED is false",
+    "model": "gemini-3.6-flash",
+    "escalated": false
+  },
+  "comment_markdown": "## AI Impact Analysis\n\n**Severity:** Low\n\n**Why:**\n- No registered downstream dependency found\n\n### Affected services\n- None\n\n### Owning teams\n- None resolved\n\n### API consumers\n- None\n\n### Schema impacts\n- None\n\n### Affected tests\n- None\n\n### CI gate: not_required\n\n### Analysis warnings\n- `malformed_edge` (team3): 2 malformed edge(s) dropped\n- `unknown_node` (team3): 'shadow-service' is in the dependency graph but not in the service catalog\n- `coverage_gap` (team3): 1 catalog service(s) have no dependency-graph node\n- `no_changed_service` (team3): No changed service could be resolved from the PR payload\n\n_Dependency graph `poc-v1` \u2014 coverage 90.91% (10/11 catalog services)._"
+}
